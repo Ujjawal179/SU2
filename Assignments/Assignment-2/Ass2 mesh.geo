@@ -1,4 +1,3 @@
-// Gmsh project created on Thu Mar 14 11:18:32 2024
 SetFactory("OpenCASCADE");
 //+
 Point(1) = {0, 0, 0, 1.0};
