@@ -69,7 +69,7 @@ def main():
   nTimeIter = SU2Driver.GetNumberTimeIter()
   time = TimeIter*deltaT
 
-  # Time loop is defined in Python so that we have acces to SU2 functionalities at each time step
+  # Time loop is defined in Python so that we have access to SU2 functionalities at each time step
   if rank == 0:
     print("\n------------------------------ Begin Solver -----------------------------\n")
   sys.stdout.flush()
@@ -79,9 +79,8 @@ def main():
   while (TimeIter < nTimeIter):
     # Time iteration preprocessing
     SU2Driver.Preprocess(TimeIter)
-    # Define the homogeneous unsteady wall temperature on the structure (user defined)
-    WallTemp = 293.0 + 257.0*sin(pi*0.5*time)    
-    print(f"\nat time : {time}\t temp is : {WallTemp}\n")
+    # Define the homogeneous unsteady wall temperature on the structure
+    WallTemp = 293.0 + 257.0*sin(pi*0.5*time)
     # Set this temperature to all the vertices on the specified CHT marker
     for iVertex in range(nVertex_CHTMarker):
       SU2Driver.SetMarkerCustomTemperature(CHTMarkerID, iVertex, WallTemp)
